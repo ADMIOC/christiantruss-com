@@ -338,6 +338,73 @@
         padding: 4px 0 4px 18px;
       }
 
+      .portal-preview {
+        display: grid;
+        grid-template-columns: 0.72fr 1fr;
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .portal-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(247, 244, 239, 0.055);
+        padding: 22px;
+      }
+
+      .portal-nav {
+        display: grid;
+        gap: 8px;
+        margin-top: 22px;
+      }
+
+      .portal-nav span,
+      .routine-list li,
+      .resource-list li {
+        border: 1px solid rgba(184, 149, 74, 0.18);
+        border-radius: 6px;
+        background: rgba(15, 14, 12, 0.28);
+        padding: 10px 12px;
+      }
+
+      .portal-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .metric {
+        border: 1px solid rgba(184, 149, 74, 0.22);
+        border-radius: 8px;
+        background: rgba(247, 244, 239, 0.04);
+        padding: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--gold);
+        font-family: Georgia, "Cormorant Garamond", serif;
+        font-size: 32px;
+        line-height: 1;
+      }
+
+      .routine-list,
+      .resource-list {
+        display: grid;
+        gap: 10px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .portal-detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 14px;
+      }
+
       .footer {
         border-top: 1px solid var(--line);
         background: rgba(58, 56, 50, 0.24);
@@ -352,7 +419,10 @@
         .grid-2,
         .grid-4,
         .card-grid,
-        .workflow {
+        .workflow,
+        .portal-preview,
+        .portal-metrics,
+        .portal-detail-grid {
           grid-template-columns: 1fr;
         }
 
@@ -502,28 +572,84 @@
 
       <section class="section" id="portal">
         <div class="shell">
-          <p class="eyebrow">Client portal + admin</p>
-          <h2 class="title">A lightweight operating system for clients and Christian.</h2>
-          <div class="workflow">
-            <div class="step">
-              <p class="eyebrow">01</p>
-              <strong>Auth</strong>
-              <p class="muted">Supabase email/password and Google OAuth.</p>
+          <p class="eyebrow">Subscriber member portal</p>
+          <h2 class="title">A client home base for cuts, care, membership, and resources.</h2>
+          <p class="subhead">
+            The portal now gives subscribers a real working view: upcoming appointments,
+            plan status, Christian’s notes, care routine tasks, saved resources, and
+            profile preferences.
+          </p>
+          <div class="portal-preview">
+            <aside class="portal-panel">
+              <p class="eyebrow">Client portal</p>
+              <h3>Dashboard</h3>
+              <nav class="portal-nav" aria-label="Portal preview navigation">
+                <span>Dashboard</span>
+                <span>Appointments</span>
+                <span>Care Plan</span>
+                <span>Membership</span>
+                <span>Resources</span>
+                <span>Profile</span>
+              </nav>
+            </aside>
+            <div class="portal-panel">
+              <p class="eyebrow">VIP All-Access</p>
+              <h3>Welcome back, Marcus Reed.</h3>
+              <p class="muted">
+                Keep the cut sharp for work weeks and simplify the morning routine.
+              </p>
+              <div class="portal-metrics">
+                <div class="metric">
+                  <strong>82</strong>
+                  <span class="muted">care score</span>
+                </div>
+                <div class="metric">
+                  <strong>7</strong>
+                  <span class="muted">visits</span>
+                </div>
+                <div class="metric">
+                  <strong>14</strong>
+                  <span class="muted">resources</span>
+                </div>
+                <div class="metric">
+                  <strong>9d</strong>
+                  <span class="muted">streak</span>
+                </div>
+              </div>
+              <div class="portal-detail-grid">
+                <div>
+                  <p class="eyebrow">Next appointment</p>
+                  <h3>Signature Truss Experience</h3>
+                  <p class="muted">June 18, 2026 / 10:30 AM / scalp treatment + beard line.</p>
+                </div>
+                <div>
+                  <p class="eyebrow">Membership</p>
+                  <h3>Active subscriber access</h3>
+                  <p class="muted">Priority booking, gated library, routine audits, and Stripe billing.</p>
+                </div>
+              </div>
             </div>
-            <div class="step">
-              <p class="eyebrow">02</p>
-              <strong>Portal</strong>
-              <p class="muted">Appointments, membership status, and gated resources.</p>
+          </div>
+          <div class="portal-detail-grid">
+            <div class="portal-panel">
+              <p class="eyebrow">Care routine</p>
+              <h3>Today’s standards</h3>
+              <ul class="routine-list">
+                <li>Hydrate + cleanse / daily AM</li>
+                <li>Moisturizer + SPF / daily AM</li>
+                <li>Beard oil / 3x per week</li>
+                <li>Cut maintenance check / weekly</li>
+              </ul>
             </div>
-            <div class="step">
-              <p class="eyebrow">03</p>
-              <strong>Admin</strong>
-              <p class="muted">Posts, bookings, members, comments, and publishing control.</p>
-            </div>
-            <div class="step">
-              <p class="eyebrow">04</p>
-              <strong>Payments</strong>
-              <p class="muted">Stripe checkout, customer portal, and webhook sync.</p>
+            <div class="portal-panel">
+              <p class="eyebrow">Gated library</p>
+              <h3>Recommended resources</h3>
+              <ul class="resource-list">
+                <li>Fade Upkeep Checklist / PDF guide</li>
+                <li>Weekly Self-Care Audit / worksheet</li>
+                <li>Beard Shape Maintenance / video</li>
+                <li>Travel Grooming Kit / checklist</li>
+              </ul>
             </div>
           </div>
         </div>
