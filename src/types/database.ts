@@ -15,6 +15,7 @@ export type Database = {
         };
         Insert: Partial<Database["public"]["Tables"]["profiles"]["Row"]> & { id: string };
         Update: Partial<Database["public"]["Tables"]["profiles"]["Row"]>;
+        Relationships: [];
       };
       bookings: {
         Row: {
@@ -30,6 +31,7 @@ export type Database = {
         };
         Insert: Partial<Database["public"]["Tables"]["bookings"]["Row"]>;
         Update: Partial<Database["public"]["Tables"]["bookings"]["Row"]>;
+        Relationships: [];
       };
       posts: {
         Row: {
@@ -51,6 +53,7 @@ export type Database = {
           title: string;
         };
         Update: Partial<Database["public"]["Tables"]["posts"]["Row"]>;
+        Relationships: [];
       };
       comments: {
         Row: {
@@ -67,6 +70,7 @@ export type Database = {
           body: string;
         };
         Update: Partial<Database["public"]["Tables"]["comments"]["Row"]>;
+        Relationships: [];
       };
       memberships: {
         Row: {
@@ -80,6 +84,7 @@ export type Database = {
         };
         Insert: Partial<Database["public"]["Tables"]["memberships"]["Row"]>;
         Update: Partial<Database["public"]["Tables"]["memberships"]["Row"]>;
+        Relationships: [];
       };
       social_drafts: {
         Row: {
@@ -98,7 +103,12 @@ export type Database = {
           content: Json;
         };
         Update: Partial<Database["public"]["Tables"]["social_drafts"]["Row"]>;
+        Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
 };
