@@ -2,8 +2,7 @@ import type { ServiceKey } from "@/types/booking";
 import type { Post } from "@/types/post";
 
 export const imageAssets = {
-  hero:
-    "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1800&q=82",
+  hero: "/brand/christian-truss-hero.png",
   cuts:
     "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=82",
   care:
