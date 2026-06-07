@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Christian Truss | Internal Preview</title>
+    <meta
+      name="description"
+      content="Static internal preview for ChristianTruss.com: Truss The Cuts, Truss The Care, booking, portal, admin, and social content system."
+    />
+    <meta property="og:title" content="Christian Truss" />
+    <meta
+      property="og:description"
+      content="Truss The Cuts. Truss The Care. Truss yourself."
+    />
+    <meta property="og:type" content="website" />
+    <style>
+      :root {
+        --ink: #0f0e0c;
+        --ink-soft: #3a3832;
+        --ink-muted: #7a7670;
+        --cream: #f7f4ef;
+        --cream-dark: #ede9e1;
+        --gold: #b8954a;
+        --gold-light: #d4b06a;
+        --teal: #2a6b5e;
+        --teal-light: #3d8a7a;
+        --line: rgba(184, 149, 74, 0.28);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--ink);
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--cream);
+        font-family: "DM Sans", Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 32px));
+        margin-inline: auto;
+      }
+
+      .eyebrow {
+        color: var(--gold);
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .display {
+        margin: 0;
+        font-family: Georgia, "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 7vw, 6.4rem);
+        font-weight: 400;
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .title {
+        margin: 0;
+        font-family: Georgia, "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .subhead {
+        max-width: 680px;
+        margin: 20px 0 0;
+        color: rgba(247, 244, 239, 0.72);
+        font-size: 18px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--gold);
+        border-radius: 6px;
+        padding: 11px 18px;
+        background: var(--gold);
+        color: var(--ink);
+        font-weight: 700;
+        transition: transform 180ms ease, background 180ms ease;
+      }
+
+      .button:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+      }
+
+      .button.secondary {
+        border-color: rgba(247, 244, 239, 0.36);
+        background: rgba(247, 244, 239, 0.08);
+        color: var(--cream);
+      }
+
+      .button.secondary:hover {
+        border-color: var(--gold);
+        color: var(--gold-light);
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(15, 14, 12, 0.94);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav {
+        display: flex;
+        min-height: 72px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        color: var(--gold);
+      }
+
+      .brand-name {
+        display: block;
+        font-family: Georgia, "Cormorant Garamond", serif;
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .brand-sub {
+        display: block;
+        color: rgba(247, 244, 239, 0.54);
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        color: rgba(247, 244, 239, 0.68);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 86vh;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(90deg, rgba(15, 14, 12, 0.94), rgba(15, 14, 12, 0.68), rgba(15, 14, 12, 0.16)),
+          url("https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1800&q=82")
+            center / cover;
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: radial-gradient(circle at 74% 18%, rgba(184, 149, 74, 0.22), transparent 30%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        min-height: 86vh;
+        flex-direction: column;
+        justify-content: center;
+        padding: 72px 0;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .split {
+        background: var(--cream);
+        color: var(--ink);
+        padding: 72px 0;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .vertical {
+        min-height: 390px;
+        overflow: hidden;
+        border-radius: 8px;
+        background: var(--ink);
+        color: var(--cream);
+      }
+
+      .vertical-inner {
+        display: flex;
+        min-height: 390px;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 28px;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .cuts {
+        background-image:
+          linear-gradient(to top, rgba(15, 14, 12, 0.94), rgba(15, 14, 12, 0.28)),
+          url("https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=82");
+      }
+
+      .care {
+        background-image:
+          linear-gradient(to top, rgba(15, 14, 12, 0.94), rgba(15, 14, 12, 0.24)),
+          url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=82");
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .stats {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(58, 56, 50, 0.38);
+        padding: 34px 0;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .stat-value {
+        color: var(--gold);
+        font-family: Georgia, "Cormorant Garamond", serif;
+        font-size: 42px;
+        line-height: 1;
+      }
+
+      .muted {
+        color: rgba(247, 244, 239, 0.62);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(247, 244, 239, 0.055);
+        padding: 24px;
+      }
+
+      .card h3 {
+        margin: 16px 0 10px;
+        font-family: Georgia, "Cormorant Garamond", serif;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1.1;
+      }
+
+      .service-price {
+        color: var(--gold);
+        font-family: Georgia, "Cormorant Garamond", serif;
+        font-size: 34px;
+      }
+
+      .band {
+        background: var(--cream);
+        color: var(--ink);
+      }
+
+      .band .muted {
+        color: var(--ink-muted);
+      }
+
+      .surface {
+        border: 1px solid rgba(15, 14, 12, 0.12);
+        background: white;
+      }
+
+      .workflow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .step {
+        border-left: 2px solid var(--gold);
+        padding: 4px 0 4px 18px;
+      }
+
+      .footer {
+        border-top: 1px solid var(--line);
+        background: rgba(58, 56, 50, 0.24);
+        padding: 44px 0;
+      }
+
+      @media (max-width: 860px) {
+        .links {
+          display: none;
+        }
+
+        .grid-2,
+        .grid-4,
+        .card-grid,
+        .workflow {
+          grid-template-columns: 1fr;
+        }
+
+        .display {
+          font-size: clamp(3rem, 14vw, 4.5rem);
+        }
+
+        .hero {
+          min-height: 780px;
+        }
+
+        .hero-inner {
+          min-height: 780px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell nav">
+        <a class="brand" href="#top" aria-label="Christian Truss home">
+          <span class="mark">✂</span>
+          <span>
+            <span class="brand-name">Christian Truss</span>
+            <span class="brand-sub">CUTS / CARE</span>
+          </span>
+        </a>
+        <nav class="links" aria-label="Primary">
+          <a href="#cuts">Cuts</a>
+          <a href="#care">Care</a>
+          <a href="#booking">Booking</a>
+          <a href="#portal">Portal</a>
+          <a href="#social">Social</a>
+        </nav>
+        <a class="button" href="#booking">Book</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="shell hero-inner">
+          <p class="eyebrow">Master barber / self-care expert</p>
+          <h1 class="display">Christian Truss</h1>
+          <p class="subhead">Truss The Cuts. Truss The Care. Truss yourself.</p>
+          <div class="actions">
+            <a class="button" href="#booking">Book a Cut</a>
+            <a class="button secondary" href="#care">Join The Care Community</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="split">
+        <div class="shell grid-2">
+          <article class="vertical" id="cuts">
+            <div class="vertical-inner cuts">
+              <p class="eyebrow">Truss The Cuts</p>
+              <h2 class="title">Precision work for the chair, the mirror, and the week after.</h2>
+              <p class="muted">
+                Craft, technique, appointment booking, and education for the barber community.
+              </p>
+            </div>
+          </article>
+          <article class="vertical" id="care">
+            <div class="vertical-inner care">
+              <p class="eyebrow">Truss The Care</p>
+              <h2 class="title">Self-care that feels practical, masculine, and repeatable.</h2>
+              <p class="muted">
+                Wellness routines, lifestyle education, and confidence-building resources.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="shell grid-4">
+          <div>
+            <div class="stat-value">$115B</div>
+            <p class="muted">self-care and grooming market</p>
+          </div>
+          <div>
+            <div class="stat-value">220K+</div>
+            <p class="muted">barbershops shaping community</p>
+          </div>
+          <div>
+            <div class="stat-value">2</div>
+            <p class="muted">brand verticals under one standard</p>
+          </div>
+          <div>
+            <div class="stat-value">1</div>
+            <p class="muted">confidence-first client experience</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shell">
+          <p class="eyebrow">The philosophy</p>
+          <h2 class="title">Grooming is the first signal. Care is the standard behind it.</h2>
+          <p class="subhead">
+            Christian Truss brings barber craft and self-care education into one operating system:
+            book the service, learn the maintenance, build the rhythm, and move with more command.
+          </p>
+          <div class="card-grid">
+            <article class="card">
+              <p class="eyebrow">Blog</p>
+              <h3>Why Your Fade Fades</h3>
+              <p class="muted">Growth pattern, cut geometry, and upkeep are the real reason a fade holds.</p>
+            </article>
+            <article class="card">
+              <p class="eyebrow">Care</p>
+              <h3>5 Rituals Every Man Should Own</h3>
+              <p class="muted">Small routines that make the face, hair, and day feel intentional.</p>
+            </article>
+            <article class="card">
+              <p class="eyebrow">Vlog</p>
+              <h3>Client Transformation in 60 Minutes</h3>
+              <p class="muted">A session breakdown from consultation to finished profile.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="booking">
+        <div class="shell">
+          <p class="eyebrow">Booking system</p>
+          <h2 class="title">Reserve the chair. Keep the standard.</h2>
+          <div class="card-grid">
+            <article class="card surface">
+              <div class="service-price">$45</div>
+              <h3>Classic Cut</h3>
+              <p class="muted">A tailored cut with consultation, shape, finish, and upkeep guidance.</p>
+            </article>
+            <article class="card surface">
+              <div class="service-price">$65</div>
+              <h3>Cut + Beard Sculpt</h3>
+              <p class="muted">A complete grooming appointment for the cut, beard, line, and profile.</p>
+            </article>
+            <article class="card surface">
+              <div class="service-price">$149</div>
+              <h3>VIP Care Consultation</h3>
+              <p class="muted">A self-care consultation focused on routine, skin, hair, and confidence.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="portal">
+        <div class="shell">
+          <p class="eyebrow">Client portal + admin</p>
+          <h2 class="title">A lightweight operating system for clients and Christian.</h2>
+          <div class="workflow">
+            <div class="step">
+              <p class="eyebrow">01</p>
+              <strong>Auth</strong>
+              <p class="muted">Supabase email/password and Google OAuth.</p>
+            </div>
+            <div class="step">
+              <p class="eyebrow">02</p>
+              <strong>Portal</strong>
+              <p class="muted">Appointments, membership status, and gated resources.</p>
+            </div>
+            <div class="step">
+              <p class="eyebrow">03</p>
+              <strong>Admin</strong>
+              <p class="muted">Posts, bookings, members, comments, and publishing control.</p>
+            </div>
+            <div class="step">
+              <p class="eyebrow">04</p>
+              <strong>Payments</strong>
+              <p class="muted">Stripe checkout, customer portal, and webhook sync.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="social">
+        <div class="shell">
+          <p class="eyebrow">Social content agent</p>
+          <h2 class="title">Platform-ready posts for Instagram, TikTok, and X.</h2>
+          <p class="subhead" style="color: var(--ink-muted)">
+            The admin social generator uses Christian’s voice: authoritative, approachable,
+            educational, culturally fluent, and confidence-forward.
+          </p>
+          <div class="card-grid">
+            <article class="card surface">
+              <p class="eyebrow">Instagram</p>
+              <h3>Storytelling captions</h3>
+              <p class="muted">150-220 words, hook, hashtags, and booking/follow CTA.</p>
+            </article>
+            <article class="card surface">
+              <p class="eyebrow">TikTok</p>
+              <h3>30-45 second scripts</h3>
+              <p class="muted">A quick hook, Cuts and Care angles, and creator-ready structure.</p>
+            </article>
+            <article class="card surface">
+              <p class="eyebrow">X</p>
+              <h3>Shareable insights</h3>
+              <p class="muted">Punchy questions or observations without press-release energy.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell grid-2">
+        <div>
+          <h2 class="title">Christian Truss</h2>
+          <p class="muted">
+            Built from the Phase A-G ChristianTruss.com implementation for internal team review.
+          </p>
+        </div>
+        <div>
+          <p class="eyebrow">Repository</p>
+          <p class="muted">ADMIOC/christiantruss-com</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
