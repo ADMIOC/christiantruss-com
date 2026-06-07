@@ -56,7 +56,7 @@ export function BookingForm({ selectedService }: { selectedService: ServiceKey }
         <label className="grid gap-2 text-sm text-cream/70">
           Preferred time
           <select
-            className="min-h-11 rounded border border-gold/25 bg-ink-soft/40 px-3 text-cream outline-none focus:border-gold"
+            className="min-h-11 rounded border border-gold/25 bg-ink-soft px-3 text-cream outline-none focus:border-gold"
             name="time_slot"
             required
           >

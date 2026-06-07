@@ -22,6 +22,16 @@ async function createCheckout(product: keyof typeof stripeProducts) {
   const isRecurring = ["cutsMonthly", "careMonthly", "vipAnnual"].includes(product);
   const session = await stripe.checkout.sessions.create({
     mode: isRecurring ? "subscription" : "payment",
+    metadata: {
+      product,
+    },
+    subscription_data: isRecurring
+      ? {
+          metadata: {
+            product,
+          },
+        }
+      : undefined,
     line_items: [{ price, quantity: 1 }],
     success_url: `${siteUrl}/book/confirm?service=${product}&booking={CHECKOUT_SESSION_ID}`,
     cancel_url: `${siteUrl}/book`,

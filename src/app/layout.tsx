@@ -1,28 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Mono, DM_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import "./globals.css";
-
-const dmSans = DM_Sans({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600"],
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -34,6 +13,37 @@ export const metadata: Metadata = {
   },
   description:
     "Christian Truss is the digital home for Truss The Cuts and Truss The Care: barber craft, self-care education, booking, and community.",
+  keywords: [
+    "Christian Truss",
+    "Truss The Cuts",
+    "Truss The Care",
+    "barber",
+    "self-care",
+    "mens grooming",
+  ],
+  openGraph: {
+    title: "Christian Truss",
+    description:
+      "Truss The Cuts. Truss The Care. Truss yourself.",
+    url: "/",
+    siteName: "Christian Truss",
+    images: [
+      {
+        url: "/og-image",
+        width: 1200,
+        height: 630,
+        alt: "Christian Truss",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Christian Truss",
+    description: "Truss The Cuts. Truss The Care. Truss yourself.",
+    images: ["/og-image"],
+  },
 };
 
 export default function RootLayout({
@@ -42,10 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${dmSans.variable} ${cormorant.variable} ${dmMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className="h-full antialiased">
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>

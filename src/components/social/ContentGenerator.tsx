@@ -61,7 +61,7 @@ export function ContentGenerator() {
           <Input name="topic" placeholder="Topic, trend, client question, or content idea" required />
           <label className="grid gap-2 text-sm text-cream/70">
             Vertical
-            <select className="min-h-11 rounded border border-gold/25 bg-ink-soft/40 px-3 text-cream outline-none" name="vertical">
+            <select className="min-h-11 rounded border border-gold/25 bg-ink-soft px-3 text-cream outline-none" name="vertical">
               <option value="both">Both</option>
               <option value="cuts">Cuts</option>
               <option value="care">Care</option>
@@ -69,7 +69,7 @@ export function ContentGenerator() {
           </label>
           <label className="grid gap-2 text-sm text-cream/70">
             Tone
-            <select className="min-h-11 rounded border border-gold/25 bg-ink-soft/40 px-3 text-cream outline-none" name="tone">
+            <select className="min-h-11 rounded border border-gold/25 bg-ink-soft px-3 text-cream outline-none" name="tone">
               <option value="educational">Educational</option>
               <option value="hype">Hype</option>
               <option value="personal">Personal</option>

@@ -19,7 +19,7 @@ export default function AdminPostsPage() {
         <form className="mt-5 grid gap-3">
           <Input name="title" placeholder="Title" />
           <Input name="slug" placeholder="Slug" />
-          <select className="min-h-11 rounded border border-gold/25 bg-ink-soft/40 px-3 text-cream outline-none">
+          <select className="min-h-11 rounded border border-gold/25 bg-ink-soft px-3 text-cream outline-none">
             <option value="blog">Blog</option>
             <option value="vlog">Vlog</option>
           </select>
